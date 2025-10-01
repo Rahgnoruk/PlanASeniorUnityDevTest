@@ -4,6 +4,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] UiBindings ui;
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] BoardController board;
 
     public GameState State { get; private set; } = new();
 
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour
         ui.Bind(State);
         gameOverScreen.SetActive(false);
         ui.Refresh();
+        board.BuildFresh();
     }
 
     public void OnScored(int points)
